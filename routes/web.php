@@ -37,14 +37,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/delete/topic/{topic}', 'HomeController@delete')->name('home.delete');
 
     Route::group(['middleware' => 'admin'], function(){
-      Route::get('/admin', 'adminController@index')->name('admin.index');
-      Route::post('/admin/add/moderator', 'adminController@addModerator')->name('admin.add.moderator');
-      Route::post('/admin/delete/moderator', 'adminController@deleteModerator')->name('admin.delete.moderator');
-      Route::post('/admin/ban', 'adminController@banUser')->name('admin.ban.user');
+      Route::get('/admin', 'AdminController@index')->name('admin.index');
+      Route::post('/admin/add/moderator', 'AdminController@addModerator')->name('admin.add.moderator');
+      Route::post('/admin/delete/moderator', 'AdminController@deleteModerator')->name('admin.delete.moderator');
+      Route::post('/admin/ban', 'AdminController@banUser')->name('admin.ban.user');
 
       Route::group(['middleware' => 'bigadmin'], function(){
-        Route::post('/admin/add/admin', 'adminController@addAdmin')->name('admin.add.admin');
-        Route::post('/admin/delete/admin', 'adminController@deleteAdmin')->name('admin.delete.admin');
+        Route::post('/admin/add/admin', 'AdminController@addAdmin')->name('admin.add.admin');
+        Route::post('/admin/delete/admin', 'AdminController@deleteAdmin')->name('admin.delete.admin');
 
       });
     });
